@@ -26,6 +26,7 @@ namespace Glashandel
                 storedValue = glasMaat;
                 glasMaat = Math.Ceiling(glasMaat);
                 overSpill = glasMaat - storedValue;
+                // Overspill not working yet
                 MessageBox.Show("overSpill = " + overSpill.ToString());
                 if (rest >= overSpill)
                 {
