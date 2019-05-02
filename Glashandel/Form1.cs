@@ -21,21 +21,28 @@ namespace Glashandel
             Decimal price = 0;
             Decimal storedValue = 0;
             Decimal overSpill = 0;
+            Decimal realSpill = 0;
+
             if (Decimal.TryParse(TextBoxMaat.Text, out glasMaat))
             {
                 storedValue = glasMaat;
                 glasMaat = Math.Ceiling(glasMaat);
                 overSpill = glasMaat - storedValue;
-                // Overspill not working yet
-                MessageBox.Show("overSpill = " + overSpill.ToString());
-                if (rest >= overSpill)
+                realSpill = 1 - overSpill;
+
+                MessageBox.Show("The realSpill = " + realSpill.ToString());
+                MessageBox.Show("The overSpill = " + overSpill.ToString());
+                if (rest >= realSpill)
                 {
-                    //MessageBox.Show("Enough rest to make the overspill");
-                    //rest -= overSpill;
+
+                    MessageBox.Show("Enough glass over to make the overspill");
+                    rest -= realSpill;
                 }
                 else
                     rest += overSpill;
-                MessageBox.Show("Rest = " + rest.ToString());
+
+                MessageBox.Show("Glas over = " + rest.ToString());
+
                 if (RadioSoort2.Checked)
                 {
                     glasCost = 55;
